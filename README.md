@@ -1,2 +1,2 @@
 # mmontes-dev
-Nginx reverse proxy config for my production apps
+Nginx reverse proxy config for my apps
