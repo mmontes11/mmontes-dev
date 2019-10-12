@@ -7,6 +7,6 @@ services:
       - "./nginx:/etc/nginx"
     network_mode: host
     ports:
-      - "${NGINX_PORT}:${NGINX_PORT}"
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+      - "${NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}"
+      - "${NGINX_MQTT_PORT}:${NGINX_MQTT_PORT}"
     restart: always
