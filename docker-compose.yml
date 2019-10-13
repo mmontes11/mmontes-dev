@@ -1,12 +1,23 @@
-version: '3'
-
+version: '2'
 services:
   nginx:
     image: nginx
+    container_name: mmontes-dev-nginx
     volumes:
       - "./nginx:/etc/nginx"
     network_mode: host
     ports:
       - "${NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}"
       - "${NGINX_MQTT_PORT}:${NGINX_MQTT_PORT}"
-    restart: always
+    restart: unless-stopped
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: mmontes-dev-duckdns
+    volumes:
+      - "./duckdns:/config"
+    environment:
+      - TZ=${DUCKDNS_TZ}
+      - SUBDOMAINS=${DUCKDNS_SUBDOMAINS}
+      - TOKEN=${DUCKDNS_TOKEN}
+      - LOG_FILE=${DUCKDNS_LOG_FILE}
+    restart: unless-stopped
