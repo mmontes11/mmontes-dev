@@ -8,7 +8,6 @@ services:
     network_mode: host
     ports:
       - "${NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}"
-      - "${NGINX_MQTT_PORT}:${NGINX_MQTT_PORT}"
     restart: unless-stopped
   duckdns:
     image: linuxserver/duckdns
