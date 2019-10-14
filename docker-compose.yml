@@ -1,13 +1,25 @@
-version: '2'
+version: "2"
 services:
   nginx:
-    image: nginx
+    image: linuxserver/letsencrypt
     container_name: mmontes-dev-nginx
-    volumes:
-      - "./nginx:/etc/nginx"
+    cap_add:
+      - NET_ADMIN
     network_mode: host
+    environment:
+      - PUID=${PGID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - URL=${URL}
+      - SUBDOMAINS=wildcard
+      - VALIDATION=duckdns
+      - DUCKDNSTOKEN=${DUCKDNS_TOKEN}
+      - EMAIL=${EMAIL}
+      - STAGING=${STAGING}
+    volumes:
+      - ./config:/config
     ports:
-      - "${NGINX_HTTP_PORT}:${NGINX_HTTP_PORT}"
+      - ${NGINX_HTTPS_PORT}:${NGINX_HTTPS_PORT}
     restart: unless-stopped
   duckdns:
     image: linuxserver/duckdns
@@ -15,8 +27,10 @@ services:
     volumes:
       - "./duckdns:/config"
     environment:
-      - TZ=${DUCKDNS_TZ}
+      - PUID=${PGID}
+      - PGID=${PGID}
+      - TZ=${TZ}
       - SUBDOMAINS=${DUCKDNS_SUBDOMAINS}
       - TOKEN=${DUCKDNS_TOKEN}
-      - LOG_FILE=${DUCKDNS_LOG_FILE}
+      - LOG_FILE=true
     restart: unless-stopped
