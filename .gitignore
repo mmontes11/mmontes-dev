@@ -1,8 +1,4 @@
-# env
-*.env
-*.env.*
-!.env.example
+.DS_Store
 
-# volumes
-duckdns/
-config/
+# k8s
+*secret.yml

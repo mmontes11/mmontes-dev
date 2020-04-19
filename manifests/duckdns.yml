@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: duckdns
+  namespace: mmontes-dev
+  labels:
+    app: mmontes-dev
+    tier: dns
+spec:
+  selector:
+    matchLabels:
+      app: mmontes-dev
+      tier: dns
+  template:
+    metadata:
+      labels:
+        app: mmontes-dev
+        tier: dns
+    spec:
+      containers:
+        - name: duckdns
+          image: linuxserver/duckdns
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 64Mi
+              cpu: 125m
+          envFrom:
+            - configMapRef:
+                name: duckdns
+            - secretRef:
+                name: duckdns

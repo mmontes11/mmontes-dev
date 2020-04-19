@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx
+  namespace: mmontes-dev
+  labels:
+    app: mmontes-dev
+    tier: reverse-proxy
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: mmontes-dev
+  labels:
+    app: mmontes-dev
+    tier: reverse-proxy
+spec:
+  selector:
+    app: mmontes-dev
+    tier: reverse-proxy
+  type: NodePort
+  ports:
+    - port: 443
+      nodePort: 30000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: mmontes-dev
+  labels:
+    app: mmontes-dev
+    tier: reverse-proxy
+spec:
+  selector:
+    matchLabels:
+      app: mmontes-dev
+      tier: reverse-proxy
+  template:
+    metadata:
+      labels:
+        app: mmontes-dev
+        tier: reverse-proxy
+    spec:
+      containers:
+        - name: nginx
+          image: mmontes11/mmontes-dev:1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 250m
+          ports:
+            - containerPort: 443
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          envFrom:
+            - configMapRef:
+                name: nginx
+            - secretRef:
+                name: nginx
+          volumeMounts:
+            - name: config
+              mountPath: /config
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: nginx
