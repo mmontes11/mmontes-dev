@@ -1,10 +1,11 @@
 # mmontes-dev
-Docker setup for my personal site and my apps.
+Kubernetes setup for my personal site and my apps.
 
-## Setup
+## Deployment
 
-Create a `.env` like [this one](./.env.example). and then execute:
+Configure `secret.yml` files and then:
 
 ```bash
-$ ./run.sh
+$ ./scripts/build.sh
+$ ./scripts/deploy.sh
 ```
