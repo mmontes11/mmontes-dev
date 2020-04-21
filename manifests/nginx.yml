@@ -1,19 +1,4 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nginx
-  namespace: mmontes-dev
-  labels:
-    app: mmontes-dev
-    tier: reverse-proxy
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 128Mi
----
-apiVersion: v1
 kind: Service
 metadata:
   name: nginx
@@ -28,8 +13,10 @@ spec:
   type: NodePort
   ports:
     - port: 443
+      name: https
       nodePort: 30443
     - port: 80
+      name: http
       nodePort: 30080
 ---
 apiVersion: apps/v1
@@ -61,7 +48,9 @@ spec:
               cpu: 250m
           ports:
             - containerPort: 443
+              name: https
             - containerPort: 80
+              name: http
           securityContext:
             capabilities:
               add:
@@ -71,10 +60,3 @@ spec:
                 name: nginx
             - secretRef:
                 name: nginx
-          volumeMounts:
-            - name: config
-              mountPath: /config
-      volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: nginx
