@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-kubectl apply -f manifests
-kubectl get ns,svc,deploy,po,cm,secrets -o wide -n=mmontes-dev
+set -e
+
+kubectl apply -f manifests --recursive
+kubectl get ns,svc,deploy,po,cm,secrets,pvc -o wide -n=mmontes-dev

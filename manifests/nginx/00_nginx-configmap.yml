@@ -10,7 +10,7 @@ data:
   EMAIL: martin11lrx@gmail.com
   PGID: "1000"
   PUID: "1000"
-  STAGING: "false"
+  STAGING: "true"
   SUBDOMAINS: wildcard
   TZ: Europe/Madrid
   URL: mmontes-dev.duckdns.org
