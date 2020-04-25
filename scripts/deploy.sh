@@ -1,6 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
 kubectl apply -f manifests --recursive
-kubectl get ns,svc,deploy,po,cm,secrets,pvc -o wide -n=mmontes-dev
+
+namespaces=("kubernetes-dashboard" "mmontes-dev")
+for ns in "${namespaces[@]}"; do
+    echo "☸️   $ns resources:"
+    kubectl get all -o wide -n="$ns"
+done
