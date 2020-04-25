@@ -53,6 +53,7 @@ spec:
             - |
               wget -O /workdir/github-explorer.subdomain.conf https://raw.githubusercontent.com/mmontes11/mmontes-dev/master/config/github-explorer.subdomain.conf
               wget -O /workdir/iot.subdomain.conf https://raw.githubusercontent.com/mmontes11/mmontes-dev/master/config/iot.subdomain.conf
+              wget -O /workdir/kubernetes.subdomain.conf https://raw.githubusercontent.com/mmontes11/mmontes-dev/master/config/kubernetes.subdomain.conf
               wget -O /workdir/www.subdomain.conf https://raw.githubusercontent.com/mmontes11/mmontes-dev/master/config/www.subdomain.conf
           volumeMounts:
             - name: proxy-confs
