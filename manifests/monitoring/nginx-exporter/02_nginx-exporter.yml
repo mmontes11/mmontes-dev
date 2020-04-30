@@ -8,7 +8,6 @@ metadata:
 spec:
   selector:
     app: nginx-exporter
-  type: NodePort
   ports:
     - port: 9113
       targetPort: 9113

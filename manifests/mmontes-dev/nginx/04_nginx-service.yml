@@ -18,3 +18,5 @@ spec:
     - port: 80
       name: http
       nodePort: 30080
+    - port: 8080
+      name: status
