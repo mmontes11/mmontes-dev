@@ -1551,6 +1551,13 @@ serverFiles:
             action: replace
             target_label: kubernetes_pod_name
 
+      - job_name: "nginx-exporter"
+        metrics_path: /metrics
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - nginx-exporter:9113
 # adds additional scrape configs to prometheus.yml
 # must be a string so you have to add a | after extraScrapeConfigs:
 # example adds prometheus-blackbox-exporter scrape config

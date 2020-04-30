@@ -364,8 +364,12 @@ dashboards:
       gnetId: 1860
       revision: 18
       datasource: Prometheus
-    kubernetes-objects:
+    kubernetes:
       gnetId: 8588
+      revision: 1
+      datasource: Prometheus
+    nginx:
+      gnetId: 12207
       revision: 1
       datasource: Prometheus
 
