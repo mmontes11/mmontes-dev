@@ -1551,14 +1551,6 @@ serverFiles:
             action: replace
             target_label: kubernetes_pod_name
 
-      - job_name: "nginx-exporter"
-        metrics_path: /metrics
-        params:
-          module: [http_2xx]
-        static_configs:
-          - targets:
-              - nginx-exporter:9113
-
       - job_name: "mongodb-exporter"
         metrics_path: /metrics
         params:
@@ -1566,6 +1558,22 @@ serverFiles:
         static_configs:
           - targets:
               - mongodb-exporter:9113
+
+      - job_name: "redis-exporter"
+        metrics_path: /metrics
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - redis-exporter:9121
+
+      - job_name: "nginx-exporter"
+        metrics_path: /metrics
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - nginx-exporter:9113
 
       - job_name: "mosquitto-exporter"
         metrics_path: /metrics
