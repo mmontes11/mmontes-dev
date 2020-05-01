@@ -376,6 +376,10 @@ dashboards:
       gnetId: 12208
       revision: 1
       datasource: Prometheus
+    mosquitto:
+      gnetId: 12216
+      revision: 1
+      datasource: Prometheus
 
 ## Reference to external ConfigMap per provider. Use provider name as key and ConfiMap name as value.
 ## A provider dashboards must be defined either by external ConfigMaps or in values.yaml, not in both.
