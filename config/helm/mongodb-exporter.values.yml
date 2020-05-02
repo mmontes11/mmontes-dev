@@ -3,11 +3,11 @@ affinity: {}
 annotations: {}
 
 extraArgs:
-- --collect.collection
-- --collect.database
-- --collect.indexusage
-- --collect.topmetrics
-- --collect.connpoolstats
+  - --collect.collection
+  - --collect.database
+  - --collect.indexusage
+  - --collect.topmetrics
+  - --collect.connpoolstats
 
 fullnameOverride: "mongodb-exporter"
 
@@ -53,13 +53,13 @@ readinessProbe:
 
 replicas: 1
 
-resources: {}
-# limits:
-#   cpu: 250m
-#   memory: 192Mi
-# requests:
-#   cpu: 100m
-#   memory: 128Mi
+resources:
+  requests:
+    memory: 128Mi
+    cpu: 125m
+  limits:
+    memory: 256Mi
+    cpu: 250m
 
 # Extra environment variables that will be passed into the exporter pod
 env: {}
@@ -92,4 +92,3 @@ serviceMonitor:
   additionalLabels: {}
 
 tolerations: []
-

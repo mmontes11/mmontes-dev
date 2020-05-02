@@ -31,10 +31,17 @@ service:
   port: 9121
   annotations: {}
   labels: {}
-    # prometheus.io/path: /metrics
-    # prometheus.io/port: "9121"
-    # prometheus.io/scrape: "true"
-resources: {}
+  # prometheus.io/path: /metrics
+  # prometheus.io/port: "9121"
+  # prometheus.io/scrape: "true"
+
+resources:
+  requests:
+    memory: 64Mi
+    cpu: 75m
+  limits:
+    memory: 128Mi
+    cpu: 125m
 
 nodeSelector: {}
 
@@ -71,7 +78,8 @@ prometheusRule:
   enabled: false
   additionalLabels: {}
   namespace: ""
-  rules: []
+  rules:
+    []
     ## These are just examples rules, please adapt them to your needs.
     ## Make sure to constraint the rules to the current service.
     #  - alert: RedisDown
@@ -120,4 +128,3 @@ auth:
     key: ""
   # Redis password (when not stored in a secret)
   redisPassword: ""
-
