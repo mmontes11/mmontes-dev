@@ -1551,6 +1551,15 @@ serverFiles:
             action: replace
             target_label: kubernetes_pod_name
 
+      - job_name: "express-exporter"
+        metrics_path: /metrics
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - back.iot:80
+              - biot.iot:80
+
       - job_name: "mongodb-exporter"
         metrics_path: /metrics
         params:

@@ -368,6 +368,10 @@ dashboards:
       gnetId: 8588
       revision: 1
       datasource: Prometheus
+    express:
+      gnetId: 12217
+      revision: 1
+      datasource: Prometheus
     mongodb:
       gnetId: 12208
       revision: 1
