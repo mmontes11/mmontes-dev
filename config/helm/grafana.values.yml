@@ -369,7 +369,7 @@ dashboards:
       revision: 1
       datasource: Prometheus
     express:
-      gnetId: 12217
+      gnetId: 12222
       revision: 1
       datasource: Prometheus
     mongodb:
