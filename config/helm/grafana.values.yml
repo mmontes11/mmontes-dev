@@ -151,16 +151,17 @@ ingress:
 
 resources:
   requests:
-    memory: 128Mi
-    cpu: 125m
-  limits:
     memory: 256Mi
-    cpu: 250m
+    cpu: 256m
+  limits:
+    memory: 512Mi
+    cpu: 500m
 
 ## Node labels for pod assignment
 ## ref: https://kubernetes.io/docs/user-guide/node-selection/
 #
-nodeSelector: {}
+nodeSelector:
+  kubernetes.io/hostname: k8s-master
 
 ## Tolerations for pod assignment
 ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
