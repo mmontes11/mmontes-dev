@@ -160,8 +160,7 @@ resources:
 ## Node labels for pod assignment
 ## ref: https://kubernetes.io/docs/user-guide/node-selection/
 #
-nodeSelector:
-  kubernetes.io/hostname: k8s-master
+nodeSelector: {}
 
 ## Tolerations for pod assignment
 ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
