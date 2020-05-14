@@ -10,7 +10,7 @@ spec:
   selector:
     app: mmontes-dev
     tier: reverse-proxy
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 443
       name: https
