@@ -12,10 +12,9 @@ extraArgs:
 fullnameOverride: "mongodb-exporter"
 
 image:
-  pullPolicy: Always
   repository: mmontes11/mongodb-prometheus-exporter
-  tag: latest
-
+  tag: v0.12.0
+  pullPolicy: Always
 imagePullSecrets: []
 
 livenessProbe:

@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: nginx-exporter
-          image: mmontes11/nginx-prometheus-exporter
+          image: mmontes11/nginx-prometheus-exporter:v0.8.0
           imagePullPolicy: Always
           resources:
             requests:

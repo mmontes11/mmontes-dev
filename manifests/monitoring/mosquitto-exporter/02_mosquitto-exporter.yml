@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: mosquitto-exporter
-          image: mmontes11/mosquitto-prometheus-exporter
+          image: mmontes11/mosquitto-prometheus-exporter:v0.6.0
           imagePullPolicy: Always
           resources:
             requests:

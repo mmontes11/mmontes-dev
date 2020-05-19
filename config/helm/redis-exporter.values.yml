@@ -12,9 +12,9 @@ serviceAccount:
 
 replicaCount: 1
 image:
-  repository: oliver006/redis_exporter
-  tag: latest-arm64
-  pullPolicy: IfNotPresent
+  repository: mmontes11/redis-prometheus-exporter
+  tag: v1.7.0
+  pullPolicy: Always
 extraArgs: {}
 # Additional Environment variables
 env: {}
