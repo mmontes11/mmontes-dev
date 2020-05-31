@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mmontes-dev
+  name: duckdns
   labels:
-    app: mmontes-dev
+    app: duckdns
+    tier: dns

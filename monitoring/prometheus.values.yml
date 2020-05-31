@@ -1562,7 +1562,7 @@ serverFiles:
           module: [http_2xx]
         static_configs:
           - targets:
-              - mongodb-exporter:9113
+              - prometheus-mongodb-exporter:9113
 
       - job_name: "redis-exporter"
         metrics_path: /metrics
@@ -1570,7 +1570,7 @@ serverFiles:
           module: [http_2xx]
         static_configs:
           - targets:
-              - redis-exporter:9121
+              - prometheus-redis-exporter:9121
 
       - job_name: "nginx-exporter"
         metrics_path: /metrics
@@ -1587,6 +1587,14 @@ serverFiles:
         static_configs:
           - targets:
               - mosquitto-exporter:9113
+
+      - job_name: "traefik-exporter"
+        metrics_path: /metrics
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - traefik-prometheus.kube-system:9100
 
 # adds additional scrape configs to prometheus.yml
 # must be a string so you have to add a | after extraScrapeConfigs:

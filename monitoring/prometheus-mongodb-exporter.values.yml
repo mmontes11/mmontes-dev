@@ -9,7 +9,7 @@ extraArgs:
   - --collect.topmetrics
   - --collect.connpoolstats
 
-fullnameOverride: "mongodb-exporter"
+fullnameOverride: "prometheus-mongodb-exporter"
 
 image:
   repository: mmontes11/mongodb-prometheus-exporter

@@ -124,9 +124,9 @@ secretFiles: {}
 ssl:
   enabled: true
   enforced: true
-  permanentRedirect: false
+  permanentRedirect: true
   upstream: false
-  insecureSkipVerify: false
+  insecureSkipVerify: true
   generateTLS: false
   # defaultCN: "example.com"
     # or *.example.com
@@ -237,6 +237,7 @@ acme:
     # for wildcard certificates see https://docs.traefik.io/configuration/acme/#wildcard-domains
     domainsList:
       - main: "*.mmontes-dev.duckdns.org"
+      - main: "*.gosmo-devs.duckdns.org"
       # - sans:
       #   - "example.com"
       # - main: "*.example2.com"
@@ -311,8 +312,8 @@ service:
   ## If static nodePort configuration is required it can be enabled as below
   ## Configure ports in allowable range (eg. 30000 - 32767 on minikube)
   nodePorts:
-    http: "30090"
-    https: "30453"
+    http: "30080"
+    https: "30443"
 gzip:
   enabled: true
 traefikLogFormat: json
@@ -346,6 +347,9 @@ rbac:
 metrics:
   prometheus:
     enabled: true
+    service:
+      name: traefik-prometheus
+      port: 9100
     # buckets: [0.1,0.3,1.2,5]
    # serviceMonitor:
     # When set true and if Prometheus Operator is installed then use a ServiceMonitor to configure scraping

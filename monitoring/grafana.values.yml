@@ -295,7 +295,7 @@ extraVolumeMounts:
 ## Pass the plugins you want installed as a list.
 ##
 plugins:
-  []
+  - grafana-piechart-panel
   # - digrich-bubblechart-panel
   # - grafana-clock-panel
 
@@ -386,6 +386,10 @@ dashboards:
       datasource: Prometheus
     mosquitto:
       gnetId: 12216
+      revision: 1
+      datasource: Prometheus
+    traefik:
+      gnetId: 12384
       revision: 1
       datasource: Prometheus
 

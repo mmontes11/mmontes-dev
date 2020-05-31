@@ -24,7 +24,7 @@ env: {}
 #       key: redis-password
 #       name: redis-config-0.0.2
 
-fullnameOverride: redis-exporter
+fullnameOverride: prometheus-redis-exporter
 
 service:
   type: ClusterIP

@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: duckdns
-  namespace: mmontes-dev
+  namespace: duckdns
   labels:
-    app: mmontes-dev
+    app: duckdns
     tier: dns
 spec:
   selector:
     matchLabels:
-      app: mmontes-dev
+      app: duckdns
       tier: dns
   template:
     metadata:
       labels:
-        app: mmontes-dev
+        app: duckdns
         tier: dns
     spec:
       containers:

@@ -2,13 +2,13 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: duckdns
-  namespace: mmontes-dev
+  namespace: duckdns
   labels:
-    app: mmontes-dev
+    app: duckdns
     tier: dns
 data:
   LOG_FILE: "true"
   PGID: "1000"
   PUID: "1000"
-  SUBDOMAINS: mmontes-dev
+  SUBDOMAINS: mmontes-dev,gosmo-devs
   TZ: Europe/Madrid

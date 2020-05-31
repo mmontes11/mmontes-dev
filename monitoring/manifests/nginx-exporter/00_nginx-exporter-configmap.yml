@@ -9,6 +9,6 @@ data:
   LISTEN_ADDRESS: :9113
   NGINX_RETRIES: "10"
   NGINX_RETRY_INTERVAL: 5s
-  SCRAPE_URI: http://nginx.mmontes-dev:8080/nginx_status
+  SCRAPE_URI: http://nginx.iot:8080/nginx_status
   TELEMETRY_PATH: /metrics
   TIMEOUT: 5s
