@@ -11,3 +11,8 @@ helm install prometheus stable/prometheus -f config/helm/prometheus.values.yml -
 helm install grafana stable/grafana -f config/helm/grafana.values.yml -n monitoring
 
 kubectl apply -f manifests/mmontes-dev --recursive
+
+# Traefik
+# kubectl apply -f traefik/manifests
+# helm install traefik stable/traefik -f traefik/values.yml -n kube-system
+# kubectl delete ingress traefik-dashboard
