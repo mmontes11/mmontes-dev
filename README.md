@@ -1,5 +1,5 @@
 # mmontes-dev
-Kubernetes setup for my personal site and my apps.
+Kubernetes setup for my apps in production.
 
 ## Deployment
 
