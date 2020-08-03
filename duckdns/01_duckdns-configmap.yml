@@ -10,5 +10,5 @@ data:
   LOG_FILE: "true"
   PGID: "1000"
   PUID: "1000"
-  SUBDOMAINS: mmontes-dev,gosmo-devs,microgateway
+  SUBDOMAINS: mmontes-dev,microgateway
   TZ: Europe/Madrid
