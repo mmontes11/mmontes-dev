@@ -238,6 +238,7 @@ acme:
     domainsList:
       - main: "*.mmontes-dev.duckdns.org"
       - main: "*.gosmo-devs.duckdns.org"
+      - main: "*.microgateway.duckdns.org"
       # - sans:
       #   - "example.com"
       # - main: "*.example2.com"
