@@ -1,6 +1,6 @@
 ## Default values for Traefik
 image: traefik
-imageTag: 1.7.20
+imageTag: 1.7.24
 imagePullPolicy: IfNotPresent
 
 ## Optionally specify an array of imagePullSecrets.
@@ -224,7 +224,7 @@ acme:
   enabled: true
   email: martin11lrx@gmail.com
   onHostRule: true
-  staging: true
+  staging: false
   ## Specify a custom ACME server endpoint
   ## Optional
   # caServer: https://acme-staging-v02.api.letsencrypt.org/directory
