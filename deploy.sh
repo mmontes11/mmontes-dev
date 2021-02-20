@@ -27,7 +27,7 @@ done
 echo "🚀    Deploying Grafana ..."
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
-helm upgrade grafana grafana/grafana -f grafana.values.yml -n monitoring --install
+helm upgrade grafana grafana/grafana -f monitoring/grafana.values.yml -n monitoring --install
 
 echo "🚀    Deploying Traefik ..."
 kubectl apply -f traefik/manifests
