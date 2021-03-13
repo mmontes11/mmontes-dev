@@ -199,15 +199,14 @@ globalArguments:
 additionalArguments:
   #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
   #  - "--log.level=DEBUG"
-  # acme
   - "--certificatesresolvers.letsencrypt.acme.email=martin11lrx@gmail.com"
   - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
   # - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
   - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
   - "--certificatesResolvers.letsencrypt.acme.dnschallenge=true"
   - "--certificatesResolvers.letsencrypt.acme.dnschallenge.provider=duckdns"
-  # metrics
   - "--metrics.prometheus=true"
+  - "--serverstransport.insecureskipverify"
 # Environment variables to be passed to Traefik's binary
 env:
 # - name: SOME_VAR
@@ -217,17 +216,17 @@ env:
 #     configMapRef:
 #       name: configmap-name
 #       key: config-key
-# - name: SOME_VAR
-#   valueFrom:
-#     secretKeyRef:
-#       name: secret-name
-#       key: secret-key
+- name: DUCKDNS_TOKEN
+  valueFrom:
+    secretKeyRef:
+      name: duckdns
+      key: TOKEN
 
 envFrom:
   # - configMapRef:
   #     name: config-map-name
-  - secretRef:
-      name: traefik-duckdns
+  # - secretRef:
+  #     name: secret-name
 
 # Configure ports
 ports:
