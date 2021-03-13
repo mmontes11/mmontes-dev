@@ -5,6 +5,12 @@ set -e
 echo "🚀    Deploying duckdns ..."
 kubectl apply -f duckdns
 
+echo "🚀    Deploying Traefik ..."
+helm repo add traefik https://helm.traefik.io/traefik
+helm upgrade traefik traefik/traefik -f traefik/values.yml -n kube-system --install
+kubectl apply -f traefik/manifests
+
+kubectl delete ingress traefik-dashboard
 echo "🚀    Deploying kubernetes-dashboard ..."
 kubectl apply -f kubernetes-dashboard
 
@@ -28,8 +34,3 @@ echo "🚀    Deploying Grafana ..."
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 helm upgrade grafana grafana/grafana -f monitoring/grafana.values.yml -n monitoring --install
-
-echo "🚀    Deploying Traefik ..."
-kubectl apply -f traefik/manifests
-helm upgrade traefik stable/traefik -f traefik/values.yml -n kube-system --install
-kubectl delete ingress traefik-dashboard
