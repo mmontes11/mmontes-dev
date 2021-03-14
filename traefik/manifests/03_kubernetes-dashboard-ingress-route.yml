@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: kubernetes-dashboard
+  namespace: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`kubernetes.mmontes-dev.duckdns.org`)
+      services:
+        - kind: Service
+          name: kubernetes-dashboard
+          namespace: monitoring
+          port: 443
