@@ -8,8 +8,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`localhost`)
-      # match: Host(`grafana.mmontes-dev.duckdns.org`)
+      match: Host(`grafana.mmontes-dev.duckdns.org`)
       services:
         - kind: Service
           name: kube-prometheus-stack-grafana
