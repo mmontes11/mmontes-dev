@@ -2,7 +2,7 @@
 image:
   name: traefik
   # defaults to appVersion
-  tag: "2.4.7"
+  tag: ""
   pullPolicy: IfNotPresent
 
 #
@@ -72,6 +72,7 @@ ingressClass:
 pilot:
   enabled: false
   token: ""
+  dashboard: false
 
 # Enable experimental features
 experimental:
@@ -88,7 +89,7 @@ experimental:
 # Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
-    enabled: false
+    enabled: true
     # Additional ingressRoute annotations (e.g. for kubernetes.io/ingress.class)
     annotations: {}
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
@@ -198,7 +199,7 @@ globalArguments:
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
   #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
-  #  - "--log.level=DEBUG"
+  - "--log.level=DEBUG"
   - "--certificatesresolvers.letsencrypt.acme.email=martin11lrx@gmail.com"
   - "--certificatesresolvers.letsencrypt.acme.storage=/data/acme.json"
   # - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
